@@ -1,6 +1,14 @@
-# Loot Bag Mod
+# Loot Bag Mod (Fabric)
 
 Fabric version of the [original mod](https://github.com/CodersDownUnder/Loot-Bag-Mod).
+
+[![CurseForge Project Name](https://cf.way2muchnoise.eu/title/699880.svg)](https://www.curseforge.com/minecraft/mc-mods/loot-bag-mod-fabric)
+[![CurseForge Downloads](https://cf.way2muchnoise.eu/full_699880_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/loot-bag-mod-fabric)
+[![CurseForge Version](https://cf.way2muchnoise.eu/versions/699880.svg)](https://www.curseforge.com/minecraft/mc-mods/loot-bag-mod-fabric)
+
+[![Modrinth Versions](https://modrinth-utils.vercel.app/api/badge/versions?id=wVnHEUjU)](https://modrinth.com/mod/loot-bag-mod-fabric)
+[![Modrinth Followers](https://modrinth-utils.vercel.app/api/badge/followers?id=wVnHEUjU)](https://modrinth.com/mod/loot-bag-mod-fabric)
+[![Modrinth Downloads](https://modrinth-utils.vercel.app/api/badge/downloads?id=wVnHEUjU)](https://modrinth.com/mod/loot-bag-mod-fabric)
 
 ## Description
 
