@@ -2,7 +2,6 @@
 
 ## [Unreleased]
 ### Added
-- Example item
 
 ### Changed
 
