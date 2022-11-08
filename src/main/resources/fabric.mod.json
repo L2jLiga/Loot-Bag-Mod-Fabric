@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "lootbagmod-fabric",
+  "version": "${version}",
+  "name": "Loot Bag Mod",
+  "description": "I need more random loot!",
+  "authors": [
+    "Trhod177s",
+    "L2jLiga"
+  ],
+  "contact": {
+    "issues": "https://github.com/L2jLiga/Loot-Bag-Mod-Fabric/issues",
+    "sources": "https://github.com/L2jLiga/Loot-Bag-Mod-Fabric"
+  },
+  "license": "LGPL-3",
+  "icon": "assets/lootbagmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.l2jliga.lootbagmod_fabric.LootBagMod"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17",
+    "owo": "*"
+  },
+  "custom": {
+    "mc-publish": {
+      "curseforge": 699880,
+      "modrinth": "wVnHEUjU"
+    },
+    "modmanager": {
+      "curseforge": 699880,
+      "modrinth": "wVnHEUjU"
+    }
+  }
+}
