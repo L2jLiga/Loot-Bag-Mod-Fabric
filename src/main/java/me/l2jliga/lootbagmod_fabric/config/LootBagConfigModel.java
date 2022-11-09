@@ -5,7 +5,7 @@ import io.wispforest.owo.config.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Modmenu(modId = "lootbagmod")
+@Modmenu(modId = "lootbagmod-fabric")
 @Config(name = "lootbagmod", wrapperName = "LootBagConfig")
 public class LootBagConfigModel {
     @SectionHeader("misc")

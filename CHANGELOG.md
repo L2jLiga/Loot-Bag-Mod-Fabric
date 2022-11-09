@@ -11,6 +11,7 @@
 
 ### Fixed
 - dependency name: owo -> owo-lib
+- configuration via modmenu
 
 ### Security
 
