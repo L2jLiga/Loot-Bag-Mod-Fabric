@@ -10,6 +10,7 @@
 ### Removed
 
 ### Fixed
+- dependency name: owo -> owo-lib
 
 ### Security
 
