@@ -10,11 +10,12 @@
 ### Removed
 
 ### Fixed
-- dependency name: owo -> owo-lib
-- configuration via modmenu
 
 ### Security
 
-## [1.0.0-1.19.2]
-Initial release
+## [1.0.1-1.19.2]
+### Fixed
+- dependency name: owo -> owo-lib
+- configuration via modmenu
 
+## [1.0.0-1.19.2]
