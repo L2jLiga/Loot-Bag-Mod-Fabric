@@ -1,7 +1,7 @@
 package me.l2jliga.lootbagmod_fabric.item;
 
-import me.l2jliga.lootbagmod_fabric.droplist.DropList;
 import me.l2jliga.lootbagmod_fabric.LootBagMod;
+import me.l2jliga.lootbagmod_fabric.droplist.DropList;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,18 +18,15 @@ import java.util.List;
 import java.util.Random;
 
 public class LootBagItem extends Item implements FabricItem {
-
     public LootBagItem(Settings settings) {
         super(settings);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
-
         try {
             Random generator = new Random();
 
-            //LootBagMod.LOGGER.info("*********************" + LootBagConfig.EnableWhitelist.get() + "******************");
             List<Identifier> possibleItems = LootBagMod.CONFIG.EnableWhitelist() ? DropList.whitelistedItems : DropList.potentialItems;
             Collections.shuffle(possibleItems);
 
@@ -40,7 +37,6 @@ public class LootBagItem extends Item implements FabricItem {
                 Item itemToGive = Registry.ITEM.get(possibleItems.get(generator.nextInt(possibleItems.size())));
                 int itemsCount = new ItemStack(itemToGive).isStackable() ? generator.nextInt(1, LootBagMod.CONFIG.StackSize()) : 1;
 
-                // TODO: Adjust logic to take into account if user has such item already and it can be stacked
                 if (!(playerIn.getInventory().getEmptySlot() <= 0)) {
                     playerIn.giveItemStack(new ItemStack(itemToGive, itemsCount));
                 } else {

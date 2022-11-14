@@ -1,19 +1,13 @@
 # Changelog
 
 ## [Unreleased]
-### Added
+### Fixed
+- Bags not dropping from any mobs
 
-### Changed
-
-### Deprecated
-
-### Removed
-
+## [1.0.1-1.19.2]
 ### Fixed
 - dependency name: owo -> owo-lib
 - configuration via modmenu
-
-### Security
 
 ## [1.0.0-1.19.2]
 Initial release
