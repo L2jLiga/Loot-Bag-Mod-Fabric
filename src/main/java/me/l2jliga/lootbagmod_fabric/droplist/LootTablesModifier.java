@@ -31,7 +31,8 @@ public class LootTablesModifier {
     }
 
     public static void modifyMobsLootTables(LootBagItem item) {
-        float dropChance = CONFIG.DropChance().floatValue();
+        float dropChance = CONFIG.DropChance().floatValue() / 100;
+
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, lootTableId, tableBuilder, source) -> {
             if (!source.isBuiltin()) return;
             if (!lootTableId.getPath().startsWith("entities/")) return;
