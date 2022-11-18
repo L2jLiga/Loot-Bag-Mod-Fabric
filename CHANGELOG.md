@@ -1,17 +1,11 @@
 # Changelog
 
 ## [Unreleased]
-### Added
-
 ### Changed
-
-### Deprecated
-
-### Removed
+- allow to set mob drop chance to 0
 
 ### Fixed
-
-### Security
+- improper mob drop chance computation
 
 ## [1.0.2-1.19.2]
 ### Fixed
