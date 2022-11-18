@@ -37,7 +37,7 @@ public class LootBagConfigModel {
     @SectionHeader("mob-drops")
     @RestartRequired
     public boolean MobDrops = true;
-    @RangeConstraint(min = 1, max = 100)
+    @RangeConstraint(min = 0, max = 100)
     @RestartRequired
     public Integer DropChance = 10;
     @RestartRequired
