@@ -3,7 +3,6 @@ package me.l2jliga.lootbagmod_fabric.item;
 import me.l2jliga.lootbagmod_fabric.LootBagMod;
 import me.l2jliga.lootbagmod_fabric.droplist.DropList;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,24 +36,14 @@ public class LootBagItem extends Item implements FabricItem {
                 Item itemToGive = Registry.ITEM.get(possibleItems.get(generator.nextInt(possibleItems.size())));
                 int itemsCount = new ItemStack(itemToGive).isStackable() ? generator.nextInt(1, LootBagMod.CONFIG.StackSize()) : 1;
 
-                if (!(playerIn.getInventory().getEmptySlot() <= 0)) {
-                    playerIn.giveItemStack(new ItemStack(itemToGive, itemsCount));
-                } else {
+                boolean isGiven = playerIn.giveItemStack(new ItemStack(itemToGive, itemsCount));
+                if (!isGiven)
                     playerIn.dropItem(new ItemStack(itemToGive, itemsCount), true);
-                }
             }
         } catch (Exception e) {
             LootBagMod.LOGGER.info("LootBagMod Error: " + e);
         }
 
-        if (playerIn.getInventory().contains(new ItemStack(this)) && !playerIn.isCreative()) {
-            ItemStack itemInHang = playerIn.getEquippedStack(EquipmentSlot.MAINHAND);
-            if (itemInHang.isItemEqual(new ItemStack(this))) {
-                itemInHang.setCount(itemInHang.getCount() - 1);
-            }
-        }
-
-        return super.use(worldIn, playerIn, handIn);
+        return TypedActionResult.pass(ItemStack.EMPTY);
     }
-
 }
