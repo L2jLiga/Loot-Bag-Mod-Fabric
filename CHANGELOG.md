@@ -1,17 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
-
-### Security
+- Incompatibility with mods that extends inventory (e.g. Inventorio)
 
 ## [1.0.3-1.19.2]
 ### Changed
