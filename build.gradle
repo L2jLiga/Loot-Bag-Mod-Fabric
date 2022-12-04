@@ -2,7 +2,7 @@ plugins {
     // fabric-loom - read more: https://github.com/FabricMC/fabric-loom
     id 'fabric-loom' version '1.0-SNAPSHOT'
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
-    id("org.jetbrains.changelog") version "1.3.1"
+    id("org.jetbrains.changelog") version "2.0.0"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -45,7 +45,7 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     // Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
-    it.options.release = 17
+    it.options.release.set(17)
 }
 
 java {
