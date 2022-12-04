@@ -6,12 +6,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 
 public class DropList {
-    public static List<Identifier> potentialItems = new ArrayList<>();
-    public static List<Identifier> whitelistedItems = new ArrayList<>();
-
     private static final List<Option.Key> keysToObserve = List.of(
             new Option.Key("EnableWhitelist"),
             new Option.Key("BlackList"),
@@ -20,6 +20,8 @@ public class DropList {
             new Option.Key("EnableContainsList"),
             new Option.Key("ContainsList")
     );
+    public static List<Identifier> potentialItems = new ArrayList<>();
+    public static List<Identifier> whitelistedItems = new ArrayList<>();
 
     @SuppressWarnings("ConstantConditions")
     public static void initializeItemsLists() {
@@ -38,21 +40,18 @@ public class DropList {
         }
         if (LootBagMod.CONFIG.EnableContainsList()) {
             DropList.containsList();
-        } else {
-            DropList.modList();
         }
+        DropList.modList();
         LootBagMod.LOGGER.info("All potential items retrieved");
     }
 
     private static void modList() {
-        List<String> modNames = new ArrayList<>(LootBagMod.CONFIG.Namespaces());
+        Set<String> modNames = new HashSet<>(LootBagMod.CONFIG.Namespaces());
         List<Identifier> items = new ArrayList<>();
         for (Identifier drops : potentialItems) {
-            for (String modName : modNames) {
-                if (drops.getNamespace().equals(modName)) {
-                    items.add(drops);
-                    LootBagMod.LOGGER.info("modList: " + drops);
-                }
+            if (modNames.contains(drops.getNamespace())) {
+                items.add(drops);
+                LootBagMod.LOGGER.info("modList: " + drops);
             }
         }
         if (LootBagMod.CONFIG.EnableWhitelist()) whitelistedItems.addAll(items);
@@ -61,18 +60,16 @@ public class DropList {
     }
 
     private static void containsList() {
+        Set<String> containsList = new HashSet<>(LootBagMod.CONFIG.ContainsList());
         List<Identifier> items = new ArrayList<>();
         for (Identifier drops : potentialItems) {
-            for (int i = 0; i < LootBagMod.CONFIG.ContainsList().size(); i++) {
-                if (drops.equals(new Identifier(LootBagMod.CONFIG.ContainsList().get(i)))) {
-                    items.add(drops);
-                    LootBagMod.LOGGER.info("containsList: " + drops);
-                }
+            if (containsList.contains(drops.toString())) {
+                items.add(drops);
+                LootBagMod.LOGGER.info("containsList: " + drops);
             }
         }
         if (LootBagMod.CONFIG.EnableWhitelist()) whitelistedItems.addAll(items);
         else potentialItems.removeAll(items);
         LootBagMod.LOGGER.info("Contains list completed");
-        DropList.modList();
     }
 }
