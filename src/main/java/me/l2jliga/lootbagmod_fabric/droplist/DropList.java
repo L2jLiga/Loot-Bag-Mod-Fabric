@@ -1,7 +1,7 @@
 package me.l2jliga.lootbagmod_fabric.droplist;
 
+import io.wispforest.owo.config.Option;
 import me.l2jliga.lootbagmod_fabric.LootBagMod;
-import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -9,14 +9,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DropList {
-    private static final Boolean whitelist = LootBagMod.CONFIG.EnableWhitelist();
     public static List<Identifier> potentialItems = new ArrayList<>();
     public static List<Identifier> whitelistedItems = new ArrayList<>();
 
+    private static final List<Option.Key> keysToObserve = List.of(
+            new Option.Key("EnableWhitelist"),
+            new Option.Key("BlackList"),
+            new Option.Key("WhiteList"),
+            new Option.Key("Namespaces"),
+            new Option.Key("EnableContainsList"),
+            new Option.Key("ContainsList")
+    );
+
+    @SuppressWarnings("ConstantConditions")
     public static void initializeItemsLists() {
-        for (Item item : Registry.ITEM) {
-            potentialItems.add(Registry.ITEM.getId(item));
-        }
+        DropList.updateItemsList(null);
+        keysToObserve.forEach(key -> LootBagMod.CONFIG.optionForKey(key).observe(DropList::updateItemsList));
+    }
+
+    private static void updateItemsList(Object _option) {
+        potentialItems.clear();
+        whitelistedItems.clear();
+        potentialItems.addAll(Registry.ITEM.getIds());
         if (LootBagMod.CONFIG.EnableWhitelist()) {
             whitelistedItems.addAll(LootBagMod.CONFIG.WhiteList().stream().map(Identifier::new).toList());
         } else {
@@ -41,7 +55,7 @@ public class DropList {
                 }
             }
         }
-        if (whitelist) whitelistedItems.addAll(items);
+        if (LootBagMod.CONFIG.EnableWhitelist()) whitelistedItems.addAll(items);
         else potentialItems.removeAll(items);
         LootBagMod.LOGGER.info("ModList Completed");
     }
@@ -56,7 +70,7 @@ public class DropList {
                 }
             }
         }
-        if (whitelist) whitelistedItems.addAll(items);
+        if (LootBagMod.CONFIG.EnableWhitelist()) whitelistedItems.addAll(items);
         else potentialItems.removeAll(items);
         LootBagMod.LOGGER.info("Contains list completed");
         DropList.modList();

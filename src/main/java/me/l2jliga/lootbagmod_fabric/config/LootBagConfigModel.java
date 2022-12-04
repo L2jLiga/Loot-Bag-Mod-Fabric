@@ -15,17 +15,11 @@ public class LootBagConfigModel {
     public Integer Drops = 10;
 
     @SectionHeader("black-and-white")
-    @RestartRequired
     public boolean EnableWhitelist = false;
-    @RestartRequired
     public List<String> BlackList = new ArrayList<>(List.of("lootbagmod:lootbag", "minecraft:air", "minecraft:command_block", "minecraft:structure_block", "minecraft:knowledge_book", "minecraft:chain_command_block", "minecraft:repeating_command_block", "minecraft:barrier", "minecraft:enchanted_book", "minecraft:written_book", "minecraft:potion", "minecraft:splash_potion", "minecraft:lingering_potion", "minecraft:spawn_egg", "minecraft:structure_void", "minecraft:mob_spawner", "minecraft:bedrock"));
-    @RestartRequired
     public List<String> WhiteList = new ArrayList<>(List.of("minecraft:stone", "minecraft:nether_star"));
-    @RestartRequired
     public List<String> Namespaces = new ArrayList<>(List.of("lootbagmod"));
-    @RestartRequired
     public boolean EnableContainsList = false;
-    @RestartRequired
     public List<String> ContainsList = new ArrayList<>(List.of("apples", "creative"));
 
     @SectionHeader("chest-drops")

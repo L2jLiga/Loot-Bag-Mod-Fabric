@@ -26,10 +26,15 @@ public class LootBagMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        // Register item
         FabricItemSettings settings = new FabricItemSettings().group(GROUP).maxCount(1);
         LootBagItem item = new LootBagItem(settings);
         Registry.register(Registry.ITEM, id("lootbag"), item);
+
+        // Observe configuration to build possible drop list
         DropList.initializeItemsLists();
+
+        // Adds loot bag to loot tables
         if (CONFIG.ChestDrops()) LootTablesModifier.modifyTreasureLootTables(item);
         if (CONFIG.MobDrops()) LootTablesModifier.modifyMobsLootTables(item);
     }
