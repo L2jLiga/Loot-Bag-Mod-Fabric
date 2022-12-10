@@ -9,7 +9,7 @@
   "text.config.lootbagmod.option.Drops": "How many items drop when a loot bag is used",
 
   "text.config.lootbagmod.section.black-and-white": "Black And White Lists",
-  "text.config.lootbagmod.option.EnableWhitelist": "Use the whitelist",
+  "text.config.lootbagmod.option.EnableWhitelist": "Use Whitelist (if enabled only items from lists below are dropped; otherwise all items except them)",
   "text.config.lootbagmod.option.BlackList": "BlackList (Syntax \"minecraft or modid : item or block name\"; example \"minecraft:air\" or \"lootbagmod:lootbag\")",
   "text.config.lootbagmod.option.WhiteList": "WhiteList Syntax \"minecraft or modid : item or block name\"; example minecraft:air or lootbagmod:lootbag)",
   "text.config.lootbagmod.option.Namespaces": "Mod black/whitelist (Syntax \"modid\")",

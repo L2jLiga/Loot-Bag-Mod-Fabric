@@ -2,14 +2,13 @@ package me.l2jliga.lootbagmod_fabric.droplist;
 
 import io.wispforest.owo.config.Option;
 import me.l2jliga.lootbagmod_fabric.LootBagMod;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Consumer;
 
 public class DropList {
     private static final List<Option.Key> keysToObserve = List.of(
@@ -32,7 +31,7 @@ public class DropList {
     private static void updateItemsList(Object _option) {
         potentialItems.clear();
         whitelistedItems.clear();
-        potentialItems.addAll(Registry.ITEM.getIds());
+        potentialItems.addAll(Registries.ITEM.getIds());
         if (LootBagMod.CONFIG.EnableWhitelist()) {
             whitelistedItems.addAll(LootBagMod.CONFIG.WhiteList().stream().map(Identifier::new).toList());
         } else {

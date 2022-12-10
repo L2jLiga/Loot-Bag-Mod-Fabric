@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Changed
+- [**BREAKING**] update to Minecraft 1.19.3
 - Restart not needed anymore when updating items list
 
 ## [1.0.4-1.19.2]
