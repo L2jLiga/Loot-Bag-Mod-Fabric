@@ -35,6 +35,8 @@ public class LootTablesModifier {
             if (!source.isBuiltin()) return;
             if (!lootTableId.getPath().startsWith("entities/")) return;
 
+            if (isBaseLootTable(lootTableId.getPath())) return;
+
             Identifier id = new Identifier(lootTableId.getNamespace(), lootTableId.getPath().split("/")[1]);
             EntityType<?> entityType = Registries.ENTITY_TYPE.getOrEmpty(id).orElse(null);
             if (entityType == null) return;
@@ -45,5 +47,20 @@ public class LootTablesModifier {
                 tableBuilder.pool(poolBuilder);
             }
         }));
+    }
+
+    /**
+     * Some entities like Sheep may have several loot tables split by color
+     * this is used to drop different wool colors
+     * e.g. minecraft:entities/sheep/white, minecraft:entities/sheep/blue, minecraft:entities/sheep/black
+     * as well, they all should have base entity for common drop
+     * e.g. minecraft:entities/sheep
+     * since we are not depend on color we have to add loot bag only to base entity
+     *
+     * @param lootTableId - loot table identifier check whether it's base entity or not
+     * @return is lootTableId for base entity
+     */
+    private static boolean isBaseLootTable(String lootTableId) {
+        return lootTableId.split("/").length == 2;
     }
 }

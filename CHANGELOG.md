@@ -2,17 +2,8 @@
 
 ## Unreleased
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
-
-### Security
+- Loot bag drops twice from sheep
 
 ## 2.0.0-1.19.3 - 2022-12-10
 
