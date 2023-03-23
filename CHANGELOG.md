@@ -2,17 +2,8 @@
 
 ## Unreleased
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
-
-### Security
+- Loot bag not dropping from mobs
 
 ## 2.0.1-1.19.3 - 2022-12-13
 

@@ -35,7 +35,7 @@ public class LootTablesModifier {
             if (!source.isBuiltin()) return;
             if (!lootTableId.getPath().startsWith("entities/")) return;
 
-            if (isBaseLootTable(lootTableId.getPath())) return;
+            if (!isBaseLootTable(lootTableId.getPath())) return;
 
             Identifier id = new Identifier(lootTableId.getNamespace(), lootTableId.getPath().split("/")[1]);
             EntityType<?> entityType = Registries.ENTITY_TYPE.getOrEmpty(id).orElse(null);
