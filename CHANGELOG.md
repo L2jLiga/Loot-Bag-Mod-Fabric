@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## 3.0.0-1.19.4 - 2023-03-23
+
 ### Changed
 - [**BREAKING**] update to Minecraft 1.19.4
 
