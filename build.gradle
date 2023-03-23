@@ -1,14 +1,10 @@
 plugins {
     // fabric-loom - read more: https://github.com/FabricMC/fabric-loom
-    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'fabric-loom' version '1.1-SNAPSHOT'
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
     id("org.jetbrains.changelog") version "2.0.0"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version + "-" + project.minecraft_version
 group = project.maven_group
 
@@ -35,6 +31,10 @@ dependencies {
     modApi("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
+base {
+    archivesName = project.archives_base_name
+}
+
 processResources {
     inputs.property "version", project.version
 
@@ -53,10 +53,13 @@ java {
     // if it is present.
     // If you remove this line, sources will not be generated.
     // withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}" }
+        rename { "${it}_${base.archivesName.get()}" }
     }
 }

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Changed
+- [**BREAKING**] update to Minecraft 1.19.4
+
+## 2.0.2-1.19.3 - 2022-03-23
+
 ### Fixed
 - Loot bag not dropping from mobs
 
