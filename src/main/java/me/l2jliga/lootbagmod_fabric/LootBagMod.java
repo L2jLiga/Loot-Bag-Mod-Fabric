@@ -12,6 +12,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +22,7 @@ public class LootBagMod implements ModInitializer {
     public static final Identifier CONTAINER_ID = new Identifier("lootbagmod", "lootbagmod");
     public static final Identifier ITEM_ID = new Identifier("lootbagmod", "lootbag");
     public static final LootBagItem LOOT_BAG_ITEM = new LootBagItem(new FabricItemSettings().maxCount(1));
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(CONTAINER_ID).icon(() -> new ItemStack(LOOT_BAG_ITEM)).build();
+    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder().displayName(Text.translatable("itemGroup.lootbagmod.lootbagmod")).icon(() -> new ItemStack(LOOT_BAG_ITEM)).build();
 
     public static LootBagConfig CONFIG = LootBagConfig.createAndLoad();
 
@@ -29,7 +30,8 @@ public class LootBagMod implements ModInitializer {
     public void onInitialize() {
         // Register item
         Registry.register(Registries.ITEM, ITEM_ID, LOOT_BAG_ITEM);
-        ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(entries -> entries.add(LOOT_BAG_ITEM));
+        Registry.register(Registries.ITEM_GROUP, CONTAINER_ID, ITEM_GROUP);
+        Registries.ITEM_GROUP.getKey(ITEM_GROUP).ifPresent(registryKey -> ItemGroupEvents.modifyEntriesEvent(registryKey).register(entries -> entries.add(LOOT_BAG_ITEM)));
 
         // Observe configuration to build possible drop list
         DropList.initializeItemsLists();

@@ -2,17 +2,8 @@
 
 ## Unreleased
 
-### Added
-
 ### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
+- [**BREAKING**] update to Minecraft 1.20.1
 
 ## 3.0.0-1.19.4 - 2023-03-23
 
