@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## 4.0.0-1.20.1 - 2023-07-20
+
 ### Changed
 - [**BREAKING**] update to Minecraft 1.20.1
 
