@@ -1,18 +1,7 @@
 # Changelog
 
-## Unreleased
-
-### Added
-
 ### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
+- [**BREAKING**] update to Minecraft 1.20.2
 
 ## 4.0.0-1.20.1 - 2023-07-20
 
