@@ -1,5 +1,7 @@
 # Changelog
 
+## Unreleased
+
 ### Changed
 - [**BREAKING**] update to Minecraft 1.20.2
 
