@@ -2,17 +2,10 @@
 
 ## Unreleased
 
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
 ### Fixed
 
-### Security
+- Game crash when items lists contains invalid identifier [#16](https://github.com/L2jLiga/Loot-Bag-Mod-Fabric/issues/16)
+- Contains list works incorrectly
 
 ## 4.0.0-1.20.2 - 2023-10-20
 
