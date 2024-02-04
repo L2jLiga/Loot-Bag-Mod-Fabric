@@ -33,15 +33,32 @@ public class DropList {
         whitelistedItems.clear();
         potentialItems.addAll(Registries.ITEM.getIds());
         if (LootBagMod.CONFIG.EnableWhitelist()) {
-            whitelistedItems.addAll(LootBagMod.CONFIG.WhiteList().stream().map(Identifier::new).toList());
+            whitelistedItems.addAll(LootBagMod.CONFIG.WhiteList().stream().filter(identifier -> {
+                if (!isIdentifierValid(identifier)) {
+                    LootBagMod.LOGGER.warn("Invalid identifier given %s".formatted(String.join(":", identifier)));
+                    return false;
+                }
+                return true;
+            }).map(Identifier::new).toList());
         } else {
-            potentialItems.removeAll(LootBagMod.CONFIG.BlackList().stream().map(Identifier::new).toList());
+            potentialItems.removeAll(LootBagMod.CONFIG.BlackList().stream().filter(identifier -> {
+                if (!isIdentifierValid(identifier)) {
+                    LootBagMod.LOGGER.warn("Invalid identifier given %s".formatted(String.join(":", identifier)));
+                    return false;
+                }
+                return true;
+            }).map(Identifier::new).toList());
         }
         if (LootBagMod.CONFIG.EnableContainsList()) {
             DropList.containsList();
         }
         DropList.modList();
         LootBagMod.LOGGER.info("All potential items retrieved");
+    }
+
+    private static boolean isIdentifierValid(String identifier) {
+        var id = identifier.split(":");
+        return id.length == 2 && Identifier.isNamespaceValid(id[0]) && Identifier.isPathValid(id[1]);
     }
 
     private static void modList() {
