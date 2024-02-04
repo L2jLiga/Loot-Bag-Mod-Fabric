@@ -1,8 +1,8 @@
 plugins {
     // fabric-loom - read more: https://github.com/FabricMC/fabric-loom
-    id 'fabric-loom' version '1.4-SNAPSHOT'
+    id 'fabric-loom' version '1.5-SNAPSHOT'
     // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
-    id("org.jetbrains.changelog") version "2.0.0"
+    id("org.jetbrains.changelog") version "2.2.0"
 }
 
 version = project.mod_version + "-" + project.minecraft_version

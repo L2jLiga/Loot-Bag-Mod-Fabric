@@ -5,6 +5,7 @@
 ### Added
 
 ### Changed
+- [**BREAKING**] update to Minecraft 1.20.3 - 1.20.4
 
 ### Deprecated
 
@@ -24,7 +25,6 @@
 
 ### Changed
 - [**BREAKING**] update to Minecraft 1.20.2
-- [**BREAKING**] update to Minecraft 1.20.1
 
 ## 4.0.0-1.20.1 - 2023-07-20
 

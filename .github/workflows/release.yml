@@ -60,7 +60,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN  }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          version-type: release
+          game-version-filter: release
           changelog: ${{ github.event.release.body }}
 
           loaders: fabric

@@ -39,7 +39,7 @@ jobs:
           ARCHIVES_BASE_NAME="$(echo "$PROPERTIES" | grep "^archives_base_name:" | cut -f2- -d ' ')"
           MOD_VERSION="$(echo "$PROPERTIES" | grep "^mod_version:" | cut -f2- -d ' ')"
           MINECRAFT_VERSION="$(echo "$PROPERTIES" | grep "^minecraft_version:" | cut -f2- -d ' ')"
-          CHANGELOG="$(./gradlew getChangelog --unreleased --no-header --console=plain -q)"
+          CHANGELOG="$(./gradlew getChangelog --unreleased --no-header --no-empty-sections --console=plain -q)"
 
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
