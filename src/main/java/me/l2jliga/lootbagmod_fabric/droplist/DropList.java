@@ -62,7 +62,7 @@ public class DropList {
         Set<String> containsList = new HashSet<>(LootBagMod.CONFIG.ContainsList());
         List<Identifier> items = new ArrayList<>();
         for (Identifier drops : potentialItems) {
-            if (containsList.contains(drops.toString())) {
+            if (containsList.stream().anyMatch(it -> drops.toString().contains(it))) {
                 items.add(drops);
                 LootBagMod.LOGGER.info("containsList: " + drops);
             }
