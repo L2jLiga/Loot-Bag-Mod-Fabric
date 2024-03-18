@@ -63,7 +63,10 @@ jobs:
           game-version-filter: releases
           changelog: ${{ github.event.release.body }}
 
-          loaders: fabric
+          loaders: |
+            fabric
+            quilt
+            neoforge
           version-resolver: releases
 
           retry-attempts: 3

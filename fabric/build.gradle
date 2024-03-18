@@ -1,0 +1,56 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+}
+
+architectury {
+    injectInjectables = false
+    platformSetupLoomIde()
+    fabric()
+}
+
+loom {}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+
+    archivesBaseName = rootProject.archives_base_name + "-fabric"
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    // config
+    modImplementation "maven.modrinth:midnightlib:${rootProject.midnightlib_version}-fabric"
+}
+
+shadowJar {
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev"
+
+    // Avoid possible collision with other commons
+    relocate ('me.l2jliga.lootbagmod', 'me.l2jliga.lootbagmod_fabric') {
+        exclude '%regex[me/l2jliga/lootbagmod_fabric/.*]'
+    }
+}
+
+remapJar {
+    injectAccessWidener = true
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "itemGroup.lootbagmod.lootbagmod": "Loot Bag",
+  "item.lootbagmod.lootbag": "Loot Bag",
+
+  "lootbagmod.midnightconfig.title": "Loot Bag Mod",
+
+  "lootbagmod.midnightconfig.section.misc": "Misc",
+  "lootbagmod.midnightconfig.option.StackSize": "Maximum possible stack size for dropped items",
+  "lootbagmod.midnightconfig.option.Drops": "How many items drop when a loot bag is used",
+
+  "lootbagmod.midnightconfig.section.blackAndWhite": "Black And White Lists",
+  "lootbagmod.midnightconfig.option.EnableWhitelist": "Use Whitelist (if enabled only items from lists below are dropped; otherwise all items except them)",
+  "lootbagmod.midnightconfig.option.BlackList": "BlackList (Syntax \"minecraft or modid : item or block name\"; example \"minecraft:air\" or \"lootbagmod:lootbag\")",
+  "lootbagmod.midnightconfig.option.WhiteList": "WhiteList Syntax \"minecraft or modid : item or block name\"; example minecraft:air or lootbagmod:lootbag)",
+  "lootbagmod.midnightconfig.option.Namespaces": "Mod black/whitelist (Syntax \"modid\")",
+  "lootbagmod.midnightconfig.option.EnableContainsList": "Enable Contains List",
+  "lootbagmod.midnightconfig.option.ContainsList": "Contains List (Syntax \"word\")",
+
+  "lootbagmod.midnightconfig.section.chestDrops": "Chests Drops",
+  "lootbagmod.midnightconfig.option.ChestDrops": "Loot Bags spawns in treasure chests",
+  "lootbagmod.midnightconfig.option.ChestsLists": "List of chests in which Loot Bag can spawn (Syntax \"minecraft or modid : chests / chest id; example \"minecraft:chests/jungle_temple\"",
+
+  "lootbagmod.midnightconfig.section.mobDrops": "Mob Drops",
+  "lootbagmod.midnightconfig.option.MobDrops": "Loot Bags drops from killed mobs",
+  "lootbagmod.midnightconfig.option.DropChance": "Loot Bag drop chance from mobs (the higher the number the more common they are)",
+  "lootbagmod.midnightconfig.option.AllHostileMobs": "Make Loot Bags droppable from all hostile Mobs",
+  "lootbagmod.midnightconfig.option.AllNonHostileMobs": "Make Loot Bags droppable from all passive and neutral mobs",
+  "lootbagmod.midnightconfig.option.MobList": "Mob drops list (Syntax \" minecraft or modname : mobregistryname \")"
+}

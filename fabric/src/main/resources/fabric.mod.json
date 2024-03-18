@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": ["Trhod177s", "L2jLiga"],
+  "contact": {
+    "issues": "https://github.com/L2jLiga/Loot-Bag-Mod-Fabric/issues",
+    "sources": "https://github.com/L2jLiga/Loot-Bag-Mod-Fabric"
+  },
+  "license": "${license}",
+  "icon": "assets/lootbagmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.l2jliga.lootbagmod_fabric.LootBagModFabric"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabric": "*",
+    "midnightlib": "*",
+    "minecraft": ">=1.20.3 <1.20.5"
+  },
+  "custom": {
+    "mc-publish": {
+      "curseforge": 699880,
+      "modrinth": "wVnHEUjU"
+    },
+    "modmanager": {
+      "curseforge": 699880,
+      "modrinth": "wVnHEUjU"
+    }
+  }
+}

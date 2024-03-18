@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/L2jLiga/Loot-Bag-Mod-Fabric/issues"
+license = "MIT License"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
+authors = "Trhod177s, L2jLiga"
+description = '${description}'
+logoFile = "assets/lootbagmod/icon.png"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+required = true
+versionRange = "[1,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+required = true
+versionRange = "[1.24.4,1.24.5)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${mod_id}]]
+modId = "midnightlib"
+required = true
+versionRange = "[1.0.0,)"
+ordering = "BEFORE"
+side = "CLIENT"
