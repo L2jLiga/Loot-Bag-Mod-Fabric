@@ -2,6 +2,8 @@ plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "1.5-SNAPSHOT" apply false
     id "java"
+    // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
+    id("org.jetbrains.changelog") version "2.2.0"
 }
 
 architectury {
